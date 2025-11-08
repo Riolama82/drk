@@ -1,7 +1,7 @@
 import streamlit as st
 import os
 import json
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field # Pydantic 라이브러리, AgentState 정의에 필수
 from typing import Literal
 
 # LangChain/LangGraph Components
@@ -411,6 +411,3 @@ if prompt := st.chat_input("여행 계획을 입력하세요..."):
                 error_message = f"에이전트 실행 중 심각한 오류가 발생했습니다: {e}"
                 st.error(error_message)
                 st.session_state.messages = st.session_state.messages[:-1] + [SystemMessage(content=error_message)]
-
-# Streamlit 자동 새로고침을 위한 코드
-st.experimental_rerun
